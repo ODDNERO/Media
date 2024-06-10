@@ -12,6 +12,11 @@
 		CE722A182C174C6D004EDE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE722A172C174C6D004EDE1C /* Assets.xcassets */; };
 		CE722A1B2C174C6D004EDE1C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CE722A1A2C174C6D004EDE1C /* Base */; };
 		CE722A292C1759F7004EDE1C /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A282C1759F7004EDE1C /* TrendViewController.swift */; };
+		CE722A2B2C176131004EDE1C /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A2A2C176131004EDE1C /* CreditViewController.swift */; };
+		CE722A2D2C176175004EDE1C /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A2C2C176175004EDE1C /* CreditTableViewCell.swift */; };
+		CE722A2F2C17618B004EDE1C /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A2E2C17618B004EDE1C /* TrendTableViewCell.swift */; };
+		CE722A322C176249004EDE1C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE722A312C176249004EDE1C /* SnapKit */; };
+		CE722A352C176253004EDE1C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE722A342C176253004EDE1C /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,9 @@
 		CE722A1A2C174C6D004EDE1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE722A1C2C174C6D004EDE1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE722A282C1759F7004EDE1C /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
+		CE722A2A2C176131004EDE1C /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		CE722A2C2C176175004EDE1C /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
+		CE722A2E2C17618B004EDE1C /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE722A322C176249004EDE1C /* SnapKit in Frameworks */,
+				CE722A352C176253004EDE1C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +67,9 @@
 				CE722A0E2C174C6B004EDE1C /* AppDelegate.swift */,
 				CE722A102C174C6B004EDE1C /* SceneDelegate.swift */,
 				CE722A282C1759F7004EDE1C /* TrendViewController.swift */,
+				CE722A2E2C17618B004EDE1C /* TrendTableViewCell.swift */,
+				CE722A2A2C176131004EDE1C /* CreditViewController.swift */,
+				CE722A2C2C176175004EDE1C /* CreditTableViewCell.swift */,
 				CE722A172C174C6D004EDE1C /* Assets.xcassets */,
 				CE722A192C174C6D004EDE1C /* LaunchScreen.storyboard */,
 				CE722A1C2C174C6D004EDE1C /* Info.plist */,
@@ -80,6 +93,10 @@
 			dependencies = (
 			);
 			name = Media;
+			packageProductDependencies = (
+				CE722A312C176249004EDE1C /* SnapKit */,
+				CE722A342C176253004EDE1C /* Alamofire */,
+			);
 			productName = Media;
 			productReference = CE722A0B2C174C6B004EDE1C /* Media.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +125,10 @@
 				Base,
 			);
 			mainGroup = CE722A022C174C6B004EDE1C;
+			packageReferences = (
+				CE722A302C176249004EDE1C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CE722A332C176253004EDE1C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = CE722A0C2C174C6B004EDE1C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -136,7 +157,10 @@
 			files = (
 				CE722A292C1759F7004EDE1C /* TrendViewController.swift in Sources */,
 				CE722A0F2C174C6B004EDE1C /* AppDelegate.swift in Sources */,
+				CE722A2D2C176175004EDE1C /* CreditTableViewCell.swift in Sources */,
 				CE722A112C174C6B004EDE1C /* SceneDelegate.swift in Sources */,
+				CE722A2B2C176131004EDE1C /* CreditViewController.swift in Sources */,
+				CE722A2F2C17618B004EDE1C /* TrendTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +379,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE722A302C176249004EDE1C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		CE722A332C176253004EDE1C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE722A312C176249004EDE1C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE722A302C176249004EDE1C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		CE722A342C176253004EDE1C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE722A332C176253004EDE1C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE722A032C174C6B004EDE1C /* Project object */;
 }

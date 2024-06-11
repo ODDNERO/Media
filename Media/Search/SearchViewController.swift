@@ -11,6 +11,7 @@ import Alamofire
 import Kingfisher
 
 class SearchViewController: UIViewController {
+    var movieList: [Result] = []
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     
     func collectionViewLayout() -> UICollectionViewLayout {
@@ -70,9 +71,16 @@ extension SearchViewController {
         AF.request(url, method: .get,
                    parameters: parameter,
                    headers: header)
-        .responseString(completionHandler: { response in
-            print("url 테스트", response)
-        })
+        .responseDecodable(of: MovieDTO.self) { response in
+            switch response.result {
+            case .success(let movie):
+                self.movieList = movie.results
+                print("--- success ---\n", movie)
+                print("--- movieList ---\n", self.movieList)
+            case .failure(let error):
+                print("--- error ---\n", error)
+            }
+        }
     }
 }
 

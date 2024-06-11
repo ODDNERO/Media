@@ -30,6 +30,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         configureView()
+        requestSearchData(text: "테스트")
     }
     
     func configureView() {
@@ -59,6 +60,23 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+//MARK: - Network
+extension SearchViewController {
+    func requestSearchData(text: String) {
+        let url = MovieAPI.searchURL
+        let header: HTTPHeaders = ["Authorization": MovieAPI.token]
+        let parameter: Parameters = ["query": text]
+        
+        AF.request(url, method: .get,
+                   parameters: parameter,
+                   headers: header)
+        .responseString(completionHandler: { response in
+            print("url 테스트", response)
+        })
+    }
+}
+
+//MARK: - Cell
 class SearchCollectionViewCell: UICollectionViewCell {
     static let id = "SearchCollectionViewCell"
 

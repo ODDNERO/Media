@@ -46,11 +46,39 @@ class TrendTableViewCell: UITableViewCell {
 //MARK: - Configure UI
 extension TrendTableViewCell {
     func configureLayout() {
-
+        cellView.snp.makeConstraints { $0.edges.equalTo(contentView.safeAreaLayoutGuide).inset(8) }
+        
+        [backdropImageView, backgroundImageView].forEach {
+            $0.snp.makeConstraints { $0.top.leading.trailing.equalTo(cellView) }
+        }
     }
     
     func configureUI() {
         self.selectionStyle = .none
-
+        contentView.layer.cornerRadius = 10
+        cellView.backgroundColor = .systemGray5
+        
+        posterImageView.backgroundColor = .white
+        posterImageView.layer.cornerRadius = 5
+        backgroundImageView.image = UIImage(resource: .background)
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 0.5
+        
+        releaseDateLabel.textColor = .systemGray5
+        overviewLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+        
+        movieTitleLabel.textColor = .black
+        movieTitleLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        movieTitleLabel.numberOfLines = 0
+        
+        voteAverageView.backgroundColor = .customBlue
+        voteAverageView.layer.cornerRadius = 25
+        starImageView.image = UIImage(systemName: "star.fill")
+        starImageView.tintColor = .systemYellow
+        voteAverageLabel.textColor = .white
+        voteAverageLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+        
+        overviewLabel.textColor = .systemGray3
+        overviewLabel.font = .systemFont(ofSize: 13, weight: .medium)
     }
 }

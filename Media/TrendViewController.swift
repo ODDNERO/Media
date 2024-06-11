@@ -30,6 +30,7 @@ class TrendViewController: UIViewController {
         configureLayout()
         configureUI()
         settingNavigation()
+        requestMovieData(timeWindow)
     }
 }
 
@@ -133,5 +134,14 @@ extension TrendViewController {
         navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: UIColor.red
         ]
+        
+        let timeWindowButton = UIBarButtonItem(title: timeWindow, style: .plain, target: self, action: #selector(timeWindowButtonClicked))
+        navigationItem.rightBarButtonItem = timeWindowButton
+    }
+    
+    @objc func timeWindowButtonClicked() {
+        isDay.toggle()
+        settingNavigation()
+        requestMovieData(timeWindow)
     }
 }

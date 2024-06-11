@@ -8,7 +8,8 @@
 import Foundation
 
 struct MovieDTO: Decodable {
-    let results: [Result]
+    var results: [Result]
+    let total_pages: Int
 }
 
 struct Result: Decodable {

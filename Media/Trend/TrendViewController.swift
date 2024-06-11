@@ -23,6 +23,9 @@ class TrendViewController: UIViewController {
         return isDay ? TimeWindow.day : TimeWindow.week
     }
     
+    var page: Int = 1
+    var isEnd = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +48,7 @@ extension TrendViewController {
         movieTableView.delegate = self
         movieTableView.dataSource = self
         movieTableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
+        movieTableView.prefetchDataSource = self
     }
 }
 
@@ -71,20 +75,45 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension TrendViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for item in indexPaths {
+            if movieList.count - 2 == item.row && isEnd == false {
+                page += 1
+                requestMovieData(timeWindow)
+            }
+        }
+    }
+}
+
 //MARK: - Network
 extension TrendViewController {
     func requestMovieData(_ timeWindow: String) {
         let url = MovieAPI.trendURL + "/\(timeWindow)"
         let header: HTTPHeaders = ["accept": "application/json",
                                    "Authorization": MovieAPI.token]
-        let parameter: Parameters = ["language": "ko-KR"]
+        let parameter: Parameters = ["language": "ko-KR",
+                                     "page": page]
         
         AF.request(url, method: .get, parameters: parameter, headers: header)
             .responseDecodable(of: MovieDTO.self) { response in
                 switch response.result {
                 case .success(let movieDTO):
-                    self.movieList = movieDTO.results
+                    
+                    if self.page == 1 {
+                        self.movieList = movieDTO.results
+                    } else {
+                        self.movieList.append(contentsOf: movieDTO.results)
+                    }
                     self.movieTableView.reloadData()
+                    
+                    if self.page == 1 {
+                        self.movieTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    }
+                    self.isEnd = self.page == movieDTO.total_pages
+                    
+                    self.movieTableView.reloadData()
+                    
                 case .failure(let error):
                     print(error)
                 }

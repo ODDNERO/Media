@@ -46,27 +46,32 @@ class TrendTableViewCell: UITableViewCell {
 //MARK: - Configure UI
 extension TrendTableViewCell {
     func configureLayout() {
-        cellView.snp.makeConstraints { $0.edges.equalTo(contentView.safeAreaLayoutGuide).inset(8) }
+        cellView.snp.makeConstraints { $0.edges.equalTo(contentView.safeAreaLayoutGuide).inset(10) }
         
         [backdropImageView, backgroundImageView].forEach {
             $0.snp.makeConstraints { $0.top.leading.trailing.equalTo(cellView) }
+        }
+        
+        movieTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(60)
+            $0.horizontalEdges.bottom.equalTo(cellView)
         }
     }
     
     func configureUI() {
         self.selectionStyle = .none
-        contentView.layer.cornerRadius = 10
-        cellView.backgroundColor = .systemGray5
+        self.layer.cornerRadius = 10
         
         posterImageView.backgroundColor = .white
         posterImageView.layer.cornerRadius = 5
         backgroundImageView.image = UIImage(resource: .background)
         backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.alpha = 0.5
+        backgroundImageView.alpha = 0.8
         
         releaseDateLabel.textColor = .systemGray5
         overviewLabel.font = .systemFont(ofSize: 13, weight: .semibold)
         
+        movieTitleLabel.backgroundColor = .white
         movieTitleLabel.textColor = .black
         movieTitleLabel.font = .systemFont(ofSize: 20, weight: .bold)
         movieTitleLabel.numberOfLines = 0

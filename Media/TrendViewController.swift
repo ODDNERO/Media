@@ -144,4 +144,9 @@ extension TrendViewController {
         settingNavigation()
         requestMovieData(timeWindow)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 값 전달 필요
+        navigationController?.pushViewController(CreditViewController(), animated: true)
+    }
 }

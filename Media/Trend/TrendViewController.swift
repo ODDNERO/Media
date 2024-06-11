@@ -73,7 +73,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - Network
 extension TrendViewController {
     func requestMovieData(_ timeWindow: String) {
-        let url = MovieAPI.url + "/\(timeWindow)" + "?" + "api_key=\(MovieAPI.key)" + "&" + "language=ko-KR"
+        let url = MovieAPI.trendURL + "/\(timeWindow)" + "?" + "api_key=\(MovieAPI.key)" + "&" + "language=ko-KR"
         print(url)
         
         AF.request(url).responseString(completionHandler: { response in

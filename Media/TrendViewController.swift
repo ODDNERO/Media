@@ -69,6 +69,49 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: - Network
+extension TrendViewController {
+    func requestMovieData(_ timeWindow: String) {
+        let url = MovieAPI.url + "/\(timeWindow)" + "?" + "api_key=\(MovieAPI.key)" + "&" + "language=ko-KR"
+        print(url)
+        
+        AF.request(url).responseString(completionHandler: { response in
+                print("url 테스트", response)
+            })
+        
+        AF.request(url).responseDecodable(of: MovieDTO.self) { response in
+                switch response.result {
+                case .success(let movieDTO):
+                    print("성공", movieDTO)
+                    self.movieList = movieDTO.results
+                    self.movieTableView.reloadData()
+                case .failure(let error):
+                    print("실패", error)
+                }
+            }
+        
+//        let header: HTTPHeaders = ["accept": "application/json",
+//                                   "Authorization": "Bearer \(MovieAPI.key)"]
+        
+//        AF.request(url, method: .get, headers: header)
+//            .responseString(completionHandler: { response in
+//                print("테스트", response)
+//            })
+//        
+//        AF.request(url, method: .get, headers: header)
+//            .responseDecodable(of: MovieDTO.self) { response in
+//                switch response.result {
+//                case .success(let movieDTO):
+//                    print("성공", movieDTO)
+//                    self.movieList = movieDTO.results
+//                    self.movieTableView.reloadData()
+//                case .failure(let error):
+//                    print("실패", error)
+//                }
+//            }
+    }
+}
+
 //MARK: - Configure UI
 extension TrendViewController {
     func configureLayout() {

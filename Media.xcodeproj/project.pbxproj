@@ -17,6 +17,8 @@
 		CE722A2F2C17618B004EDE1C /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A2E2C17618B004EDE1C /* TrendTableViewCell.swift */; };
 		CE722A322C176249004EDE1C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE722A312C176249004EDE1C /* SnapKit */; };
 		CE722A352C176253004EDE1C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE722A342C176253004EDE1C /* Alamofire */; };
+		CE722A372C1779E9004EDE1C /* MediaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A362C1779E9004EDE1C /* MediaDTO.swift */; };
+		CE722A392C177A0F004EDE1C /* APIkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A382C177A0F004EDE1C /* APIkey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		CE722A2A2C176131004EDE1C /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		CE722A2C2C176175004EDE1C /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		CE722A2E2C17618B004EDE1C /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
+		CE722A362C1779E9004EDE1C /* MediaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDTO.swift; sourceTree = "<group>"; };
+		CE722A382C177A0F004EDE1C /* APIkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				CE722A172C174C6D004EDE1C /* Assets.xcassets */,
 				CE722A192C174C6D004EDE1C /* LaunchScreen.storyboard */,
 				CE722A1C2C174C6D004EDE1C /* Info.plist */,
+				CE722A362C1779E9004EDE1C /* MediaDTO.swift */,
+				CE722A382C177A0F004EDE1C /* APIkey.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -157,6 +163,8 @@
 			files = (
 				CE722A292C1759F7004EDE1C /* TrendViewController.swift in Sources */,
 				CE722A0F2C174C6B004EDE1C /* AppDelegate.swift in Sources */,
+				CE722A392C177A0F004EDE1C /* APIkey.swift in Sources */,
+				CE722A372C1779E9004EDE1C /* MediaDTO.swift in Sources */,
 				CE722A2D2C176175004EDE1C /* CreditTableViewCell.swift in Sources */,
 				CE722A112C174C6B004EDE1C /* SceneDelegate.swift in Sources */,
 				CE722A2B2C176131004EDE1C /* CreditViewController.swift in Sources */,

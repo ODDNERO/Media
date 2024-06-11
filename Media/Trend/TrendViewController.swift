@@ -129,20 +129,28 @@ extension TrendViewController {
 extension TrendViewController {
     func settingNavigation() {
         navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.tintColor = .customBlue
         navigationItem.title = "🔥 인기 영화"
-        navigationController?.navigationBar.titleTextAttributes = [
-            .foregroundColor: UIColor.red
-        ]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.red]
         
         let timeWindowButton = UIBarButtonItem(title: timeWindow, style: .plain, target: self, action: #selector(timeWindowButtonClicked))
         navigationItem.rightBarButtonItem = timeWindowButton
+        timeWindowButton.tintColor = .customBlue
+        
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchButtonClicked))
+        navigationItem.leftBarButtonItem = searchButton
+        searchButton.tintColor = .black
     }
     
     @objc func timeWindowButtonClicked() {
         isDay.toggle()
         settingNavigation()
         requestMovieData(timeWindow)
+    }
+    
+    @objc func searchButtonClicked() {
+        let searchNaviVC = UINavigationController(rootViewController: SearchViewController())
+        searchNaviVC.modalPresentationStyle = .fullScreen
+        present(searchNaviVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

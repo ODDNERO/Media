@@ -87,14 +87,26 @@ extension SearchViewController {
 //MARK: - Cell
 class SearchCollectionViewCell: UICollectionViewCell {
     static let id = "SearchCollectionViewCell"
-
+    let posterImageView = UIImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black //임시
+        
+        backgroundColor = .systemGray5
         self.layer.cornerRadius = 10
+        
+        contentView.addSubview(posterImageView)
+        posterImageView.tintColor = .white
+        posterImageView.contentMode = .scaleAspectFill
+        posterImageView.snp.makeConstraints { $0.edges.equalTo(contentView).inset(50) }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureImage(source: String){
+        let url = URL(string: "\(MovieAPI.imageURL)\(source)")
+        posterImageView.kf.setImage(with: url)
     }
 }

@@ -20,6 +20,7 @@
 		CE722A372C1779E9004EDE1C /* MediaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A362C1779E9004EDE1C /* MediaDTO.swift */; };
 		CE722A392C177A0F004EDE1C /* APIkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A382C177A0F004EDE1C /* APIkey.swift */; };
 		CE722A4C2C185F8B004EDE1C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE722A4B2C185F8B004EDE1C /* SearchViewController.swift */; };
+		CE722A522C18793B004EDE1C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE722A512C18793B004EDE1C /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE722A522C18793B004EDE1C /* Kingfisher in Frameworks */,
 				CE722A322C176249004EDE1C /* SnapKit in Frameworks */,
 				CE722A352C176253004EDE1C /* Alamofire in Frameworks */,
 			);
@@ -129,6 +131,7 @@
 			packageProductDependencies = (
 				CE722A312C176249004EDE1C /* SnapKit */,
 				CE722A342C176253004EDE1C /* Alamofire */,
+				CE722A512C18793B004EDE1C /* Kingfisher */,
 			);
 			productName = Media;
 			productReference = CE722A0B2C174C6B004EDE1C /* Media.app */;
@@ -161,6 +164,7 @@
 			packageReferences = (
 				CE722A302C176249004EDE1C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CE722A332C176253004EDE1C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CE722A502C18793B004EDE1C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CE722A0C2C174C6B004EDE1C /* Products */;
 			projectDirPath = "";
@@ -433,6 +437,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		CE722A502C18793B004EDE1C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -445,6 +457,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE722A332C176253004EDE1C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		CE722A512C18793B004EDE1C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE722A502C18793B004EDE1C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

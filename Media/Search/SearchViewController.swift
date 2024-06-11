@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SnapKit
+import Alamofire
+import Kingfisher
 
 class SearchViewController: UIViewController {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())

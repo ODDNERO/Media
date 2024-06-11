@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Alamofire
+import Kingfisher
 
 class TrendViewController: UIViewController {
     let movieTableView = UITableView()

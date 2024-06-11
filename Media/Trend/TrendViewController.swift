@@ -62,7 +62,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         cell.voteAverageLabel.text = "\(movieList[indexPath.row].vote_average)"
         //        cell.posterImageView.image
         //        cell.backdropImageView.image
-        cell.backgroundColor = .clear
+        cell.backgroundColor = .white
         return cell
     }
     
@@ -74,43 +74,21 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - Network
 extension TrendViewController {
     func requestMovieData(_ timeWindow: String) {
-        let url = MovieAPI.trendURL + "/\(timeWindow)" + "?" + "api_key=\(MovieAPI.key)" + "&" + "language=ko-KR"
-        print(url)
+        let url = MovieAPI.trendURL + "/\(timeWindow)"
+        let header: HTTPHeaders = ["accept": "application/json",
+                                   "Authorization": MovieAPI.token]
+        let parameter: Parameters = ["language": "ko-KR"]
         
-        AF.request(url).responseString(completionHandler: { response in
-                print("url 테스트", response)
-            })
-        
-        AF.request(url).responseDecodable(of: MovieDTO.self) { response in
+        AF.request(url, method: .get, parameters: parameter, headers: header)
+            .responseDecodable(of: MovieDTO.self) { response in
                 switch response.result {
                 case .success(let movieDTO):
-                    print("성공", movieDTO)
                     self.movieList = movieDTO.results
                     self.movieTableView.reloadData()
                 case .failure(let error):
-                    print("실패", error)
+                    print(error)
                 }
             }
-        
-//        let header: HTTPHeaders = ["accept": "application/json",
-//                                   "Authorization": "Bearer \(MovieAPI.key)"]
-        
-//        AF.request(url, method: .get, headers: header)
-//            .responseString(completionHandler: { response in
-//                print("테스트", response)
-//            })
-//        
-//        AF.request(url, method: .get, headers: header)
-//            .responseDecodable(of: MovieDTO.self) { response in
-//                switch response.result {
-//                case .success(let movieDTO):
-//                    print("성공", movieDTO)
-//                    self.movieList = movieDTO.results
-//                    self.movieTableView.reloadData()
-//                case .failure(let error):
-//                    print("실패", error)
-//                }
-//            }
     }
 }
 
